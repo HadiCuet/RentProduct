@@ -2,8 +2,6 @@
 //  RentProductTests.swift
 //  RentProductTests
 //
-//  Created by Abdullah Al Hadi on 21/10/22.
-//
 
 import XCTest
 @testable import RentProduct
