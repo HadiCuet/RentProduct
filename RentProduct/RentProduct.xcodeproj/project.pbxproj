@@ -17,6 +17,15 @@
 		0F1A77252902EED000DCC863 /* RentProductTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A77242902EED000DCC863 /* RentProductTests.swift */; };
 		0F1A772F2902EED000DCC863 /* RentProductUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A772E2902EED000DCC863 /* RentProductUITests.swift */; };
 		0F1A77312902EED000DCC863 /* RentProductUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A77302902EED000DCC863 /* RentProductUITestsLaunchTests.swift */; };
+		0F1A77432902F98500DCC863 /* PersistentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A77422902F98500DCC863 /* PersistentStorage.swift */; };
+		0F1A77452902FA9800DCC863 /* RentDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A77442902FA9800DCC863 /* RentDataManager.swift */; };
+		0F1A77472902FB9600DCC863 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A77462902FB9600DCC863 /* Log.swift */; };
+		0F1A77492902FBDE00DCC863 /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A77482902FBDE00DCC863 /* Bindable.swift */; };
+		0F1A774B2902FC8D00DCC863 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A774A2902FC8D00DCC863 /* Product.swift */; };
+		0F1A774E2902FE7300DCC863 /* backend-frontend-data.json in Resources */ = {isa = PBXBuildFile; fileRef = 0F1A774D2902FE7300DCC863 /* backend-frontend-data.json */; };
+		0F1A77502902FEF800DCC863 /* InitProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A774F2902FEF800DCC863 /* InitProduct.swift */; };
+		0F1A77522902FFF000DCC863 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A77512902FFF000DCC863 /* Constants.swift */; };
+		0F1A7754290300F000DCC863 /* InitDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A7753290300F000DCC863 /* InitDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +60,15 @@
 		0F1A772A2902EED000DCC863 /* RentProductUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RentProductUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F1A772E2902EED000DCC863 /* RentProductUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentProductUITests.swift; sourceTree = "<group>"; };
 		0F1A77302902EED000DCC863 /* RentProductUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentProductUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0F1A77422902F98500DCC863 /* PersistentStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStorage.swift; sourceTree = "<group>"; };
+		0F1A77442902FA9800DCC863 /* RentDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentDataManager.swift; sourceTree = "<group>"; };
+		0F1A77462902FB9600DCC863 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		0F1A77482902FBDE00DCC863 /* Bindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
+		0F1A774A2902FC8D00DCC863 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		0F1A774D2902FE7300DCC863 /* backend-frontend-data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "backend-frontend-data.json"; sourceTree = "<group>"; };
+		0F1A774F2902FEF800DCC863 /* InitProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitProduct.swift; sourceTree = "<group>"; };
+		0F1A77512902FFF000DCC863 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0F1A7753290300F000DCC863 /* InitDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,9 +119,14 @@
 		0F1A77092902EECF00DCC863 /* RentProduct */ = {
 			isa = PBXGroup;
 			children = (
+				0F1A773E2902F94600DCC863 /* Models */,
+				0F1A773D2902F93800DCC863 /* Views */,
+				0F1A773F2902F95100DCC863 /* ViewModels */,
+				0F1A77412902F96900DCC863 /* Managers */,
+				0F1A77402902F95900DCC863 /* Utilities */,
+				0F1A774C2902FE4D00DCC863 /* Resources */,
 				0F1A770A2902EECF00DCC863 /* AppDelegate.swift */,
 				0F1A770C2902EECF00DCC863 /* SceneDelegate.swift */,
-				0F1A770E2902EECF00DCC863 /* ViewController.swift */,
 				0F1A77102902EECF00DCC863 /* Main.storyboard */,
 				0F1A77162902EED000DCC863 /* Assets.xcassets */,
 				0F1A77182902EED000DCC863 /* LaunchScreen.storyboard */,
@@ -128,6 +151,58 @@
 				0F1A77302902EED000DCC863 /* RentProductUITestsLaunchTests.swift */,
 			);
 			path = RentProductUITests;
+			sourceTree = "<group>";
+		};
+		0F1A773D2902F93800DCC863 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0F1A770E2902EECF00DCC863 /* ViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0F1A773E2902F94600DCC863 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0F1A774A2902FC8D00DCC863 /* Product.swift */,
+				0F1A774F2902FEF800DCC863 /* InitProduct.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0F1A773F2902F95100DCC863 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		0F1A77402902F95900DCC863 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				0F1A77462902FB9600DCC863 /* Log.swift */,
+				0F1A77482902FBDE00DCC863 /* Bindable.swift */,
+				0F1A77512902FFF000DCC863 /* Constants.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		0F1A77412902F96900DCC863 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				0F1A77422902F98500DCC863 /* PersistentStorage.swift */,
+				0F1A77442902FA9800DCC863 /* RentDataManager.swift */,
+				0F1A7753290300F000DCC863 /* InitDataManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		0F1A774C2902FE4D00DCC863 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0F1A774D2902FE7300DCC863 /* backend-frontend-data.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,6 +311,7 @@
 			files = (
 				0F1A771A2902EED000DCC863 /* LaunchScreen.storyboard in Resources */,
 				0F1A77172902EED000DCC863 /* Assets.xcassets in Resources */,
+				0F1A774E2902FE7300DCC863 /* backend-frontend-data.json in Resources */,
 				0F1A77122902EECF00DCC863 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,8 +338,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F1A770F2902EECF00DCC863 /* ViewController.swift in Sources */,
+				0F1A77522902FFF000DCC863 /* Constants.swift in Sources */,
+				0F1A77502902FEF800DCC863 /* InitProduct.swift in Sources */,
+				0F1A77472902FB9600DCC863 /* Log.swift in Sources */,
+				0F1A774B2902FC8D00DCC863 /* Product.swift in Sources */,
+				0F1A7754290300F000DCC863 /* InitDataManager.swift in Sources */,
+				0F1A77492902FBDE00DCC863 /* Bindable.swift in Sources */,
 				0F1A770B2902EECF00DCC863 /* AppDelegate.swift in Sources */,
 				0F1A77152902EECF00DCC863 /* RentProduct.xcdatamodeld in Sources */,
+				0F1A77432902F98500DCC863 /* PersistentStorage.swift in Sources */,
+				0F1A77452902FA9800DCC863 /* RentDataManager.swift in Sources */,
 				0F1A770D2902EECF00DCC863 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

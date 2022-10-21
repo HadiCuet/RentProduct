@@ -2,8 +2,6 @@
 //  RentProductUITests.swift
 //  RentProductUITests
 //
-//  Created by Abdullah Al Hadi on 21/10/22.
-//
 
 import XCTest
 
