@@ -38,7 +38,7 @@ extension ProductElement {
         cdProduct.needingRepair = self.needingRepair
         cdProduct.durability = self.durability
         cdProduct.maxDurability = self.maxDurability
-        cdProduct.mileage = self.mileage ?? 0
+        cdProduct.mileage = self.mileage ?? -1
         cdProduct.price = self.price
         cdProduct.minimumRentPeriod = self.minimumRentPeriod
     }

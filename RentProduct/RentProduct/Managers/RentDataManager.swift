@@ -9,8 +9,8 @@ struct RentDataManager {
 
     private let productRepository = ProductDataRepository()
 
-    func fetchProducts() -> [ProductElement]? {
-        self.productRepository.getAllProduct()
+    func fetchProducts() -> [ProductElement] {
+        self.productRepository.getAllProduct() ?? []
     }
 
     func getProduct(byCode code: String) -> ProductElement? {
