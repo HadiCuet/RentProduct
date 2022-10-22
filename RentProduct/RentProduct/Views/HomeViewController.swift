@@ -54,6 +54,9 @@ class HomeViewController: UIViewController {
     }
 
     @IBAction func bookButtonPressed(_ sender: UIButton) {
+        let screenBound = UIScreen.main.bounds
+        let bookView = BookProductView(frame: CGRect(x: 0, y: 0, width: screenBound.width, height: screenBound.height))
+        self.view.addSubview(bookView)
     }
 
     @IBAction func returnButtonPressed(_ sender: UIButton) {

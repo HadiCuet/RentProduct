@@ -32,6 +32,7 @@
 		0F7F12942903E6AA00F3C79B /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7F12922903E6AA00F3C79B /* ProductTableViewCell.swift */; };
 		0F7F12952903E6AA00F3C79B /* ProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F7F12932903E6AA00F3C79B /* ProductTableViewCell.xib */; };
 		0F7F12972903ECE900F3C79B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7F12962903ECE900F3C79B /* HomeViewModel.swift */; };
+		0F7F1299290413FE00F3C79B /* BookProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7F1298290413FE00F3C79B /* BookProductView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		0F7F12922903E6AA00F3C79B /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
 		0F7F12932903E6AA00F3C79B /* ProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductTableViewCell.xib; sourceTree = "<group>"; };
 		0F7F12962903ECE900F3C79B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		0F7F1298290413FE00F3C79B /* BookProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookProductView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 				0F1A770E2902EECF00DCC863 /* HomeViewController.swift */,
 				0F7F12922903E6AA00F3C79B /* ProductTableViewCell.swift */,
 				0F7F12932903E6AA00F3C79B /* ProductTableViewCell.xib */,
+				0F7F1298290413FE00F3C79B /* BookProductView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F7F12972903ECE900F3C79B /* HomeViewModel.swift in Sources */,
+				0F7F1299290413FE00F3C79B /* BookProductView.swift in Sources */,
 				0F1A770F2902EECF00DCC863 /* HomeViewController.swift in Sources */,
 				0F1A77522902FFF000DCC863 /* Constants.swift in Sources */,
 				0F1A77472902FB9600DCC863 /* Log.swift in Sources */,
@@ -486,7 +490,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -540,7 +544,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -565,6 +569,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -593,6 +598,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
