@@ -11,15 +11,19 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var bookButton: UIButton!
     @IBOutlet weak var returnButton: UIButton!
 
-    let tableViewCellName = "ProductTableViewCell"
-    let viewModel = HomeViewModel()
-    var products = [ProductElement]()
+    private var searchText = ""
+    private let tableViewCellName = "ProductTableViewCell"
+    private let viewModel = HomeViewModel()
+    private var products = [ProductElement]()
+    private var searchController = UISearchController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        Log.info("Home view loaded.")
         self.navigationItem.title = "Rent Product"
 
         self.setUpTableView()
+        self.setUpSearchController()
         self.bindViewModelData()
         self.viewModel.getAllProducts()
     }
@@ -27,6 +31,7 @@ class HomeViewController: UIViewController {
     func bindViewModelData() {
         self.viewModel.productElements.bind { [weak self] products in
             guard let `self` = self else { return }
+            Log.info("Product received to show - \(products.count)")
             self.products = products
             self.productTableView.reloadData()
         }
@@ -36,6 +41,16 @@ class HomeViewController: UIViewController {
         self.productTableView.delegate = self
         self.productTableView.dataSource = self
         self.productTableView.register(UINib(nibName: tableViewCellName, bundle: nil), forCellReuseIdentifier: tableViewCellName)
+    }
+
+    private func setUpSearchController() {
+        self.searchController = UISearchController(searchResultsController: nil)
+        self.searchController.hidesNavigationBarDuringPresentation = false
+        self.searchController.obscuresBackgroundDuringPresentation = false
+        self.navigationItem.searchController = self.searchController
+        self.navigationItem.hidesSearchBarWhenScrolling = false
+        self.searchController.searchBar.placeholder = "Search by Product Name"
+        self.searchController.searchBar.delegate = self
     }
 
     @IBAction func bookButtonPressed(_ sender: UIButton) {
@@ -63,6 +78,27 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         cell.setProductData(product)
         cell.selectionStyle = .none
         return cell
+    }
+}
+
+extension HomeViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.viewModel.searchProducts(withString: searchText)
+    }
+
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = true
+    }
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.searchText = searchText
+    }
+
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        if self.searchText.isEmpty {
+            self.viewModel.getAllProducts()
+        }
+        searchBar.showsCancelButton = false
     }
 }
 

@@ -10,7 +10,7 @@ struct RentDataManager {
     private let productRepository = ProductDataRepository()
 
     func fetchProducts() -> [ProductElement] {
-        self.productRepository.getAllProduct() ?? []
+        return self.productRepository.getAllProduct() ?? []
     }
 
     func getProduct(byCode code: String) -> ProductElement? {
@@ -19,5 +19,15 @@ struct RentDataManager {
 
     func updateProduct(_ product: ProductElement) -> Bool {
         return self.productRepository.updateProduct(product: product)
+    }
+
+    func searchProduct(withKey text : String) -> [ProductElement] {
+        var products = fetchProducts()
+
+        products = products.filter({ product in
+            return product.name.lowercased().contains(text.lowercased())
+        })
+        Log.info("Data filtered count - \(products.count)")
+        return products
     }
 }
