@@ -5,7 +5,7 @@
 
 import Foundation
 
-class InitDataManager {
+struct InitDataManager {
 
     let jsonFileName = "backend-frontend-data"
     let jsonFileFormat = "json"
@@ -44,6 +44,10 @@ class InitDataManager {
     }
 
     private func saveDataToStorage(_ products : [ProductElement]) {
+        let productRepository = ProductDataRepository()
+        products.forEach({ (product) in
+            productRepository.createOrUpdateProduct(product)
+        })
         UserDefaults.standard.set(true, forKey: dataSaveDoneKey)
     }
 }
