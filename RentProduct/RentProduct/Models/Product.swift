@@ -30,7 +30,7 @@ enum TypeEnum: String, Codable {
 }
 
 extension ProductElement {
-    func convertToCDProduct(cdProduct: CDProduct) -> CDProduct {
+    func convertToCDProduct(_ cdProduct: inout CDProduct) {
         cdProduct.code = self.code
         cdProduct.name = self.name
         cdProduct.type = self.type.rawValue
@@ -41,6 +41,5 @@ extension ProductElement {
         cdProduct.mileage = self.mileage ?? 0
         cdProduct.price = self.price
         cdProduct.minimumRentPeriod = self.minimumRentPeriod
-        return cdProduct
     }
 }

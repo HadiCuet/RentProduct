@@ -10,10 +10,20 @@ protocol ProductRepository {
     func createProduct(product: ProductElement)
     func getAllProduct() -> [ProductElement]?
     func getProduct(byCode code: String) -> ProductElement?
-    func updateProduce(product: ProductElement) -> Bool
+    func updateProduct(product: ProductElement) -> Bool
 }
 
 struct ProductDataRepository : ProductRepository {
+
+    func createOrUpdateProduct(_ product: ProductElement) {
+        if self.getCDProduct(byCode: product.code) == nil {
+            self.createProduct(product: product)
+        }
+        else {
+            _ = self.updateProduct(product: product)
+        }
+    }
+
     func createProduct(product: ProductElement) {
         var cdProduct = CDProduct(context: PersistentStorage.shared.context)
 //        cdProduct.code = product.code
@@ -26,7 +36,7 @@ struct ProductDataRepository : ProductRepository {
 //        cdProduct.mileage = product.mileage ?? 0
 //        cdProduct.price = product.price
 //        cdProduct.minimumRentPeriod = product.minimumRentPeriod
-        cdProduct = product.convertToCDProduct(cdProduct: cdProduct)
+        product.convertToCDProduct(&cdProduct)
 
         PersistentStorage.shared.saveContext()
     }
@@ -51,12 +61,12 @@ struct ProductDataRepository : ProductRepository {
         return cdProduct.convertToProduct()
     }
 
-    func updateProduce(product: ProductElement) -> Bool {
+    func updateProduct(product: ProductElement) -> Bool {
         guard var cdProduct = getCDProduct(byCode: product.code) else {
             Log.error("Product not found to update - \(product.code)")
             return false
         }
-        cdProduct = product.convertToCDProduct(cdProduct: cdProduct)
+        product.convertToCDProduct(&cdProduct)
         PersistentStorage.shared.saveContext()
 
         Log.info("Product update successful.")
