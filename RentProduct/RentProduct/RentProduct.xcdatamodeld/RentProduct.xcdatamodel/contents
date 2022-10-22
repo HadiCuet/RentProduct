@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21279" systemVersion="21G115" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Products" representedClassName="Products" syncable="YES" codeGenerationType="class">
+    <entity name="CDProduct" representedClassName="CDProduct" syncable="YES">
         <attribute name="availability" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="code" attributeType="String"/>
         <attribute name="durability" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
@@ -11,5 +11,10 @@
         <attribute name="needingRepair" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="price" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="type" attributeType="String"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="code"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
 </model>

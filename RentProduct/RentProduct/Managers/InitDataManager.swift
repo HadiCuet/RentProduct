@@ -24,8 +24,8 @@ class InitDataManager {
         return UserDefaults.standard.bool(forKey: dataSaveDoneKey)
     }
 
-    private func readDataFromJson() -> [InitProductElement] {
-        var products = [InitProductElement]()
+    private func readDataFromJson() -> [ProductElement] {
+        var products = [ProductElement]()
 
         guard let bundlePath = Bundle.main.path(forResource: jsonFileName, ofType: jsonFileFormat) else {
             Log.error("Couldn't find json path")
@@ -33,7 +33,7 @@ class InitDataManager {
         }
         do {
             if let jsonData = try String(contentsOfFile: bundlePath).data(using: .utf8) {
-                products = try JSONDecoder().decode([InitProductElement].self, from: jsonData)
+                products = try JSONDecoder().decode([ProductElement].self, from: jsonData)
                 Log.info("Json docode success")
             }
         }
@@ -43,7 +43,7 @@ class InitDataManager {
         return products
     }
 
-    private func saveDataToStorage(_ products : [InitProductElement]) {
+    private func saveDataToStorage(_ products : [ProductElement]) {
         UserDefaults.standard.set(true, forKey: dataSaveDoneKey)
     }
 }
