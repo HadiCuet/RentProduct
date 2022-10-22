@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0F1A770B2902EECF00DCC863 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A770A2902EECF00DCC863 /* AppDelegate.swift */; };
 		0F1A770D2902EECF00DCC863 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A770C2902EECF00DCC863 /* SceneDelegate.swift */; };
-		0F1A770F2902EECF00DCC863 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A770E2902EECF00DCC863 /* ViewController.swift */; };
+		0F1A770F2902EECF00DCC863 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A770E2902EECF00DCC863 /* HomeViewController.swift */; };
 		0F1A77122902EECF00DCC863 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F1A77102902EECF00DCC863 /* Main.storyboard */; };
 		0F1A77152902EECF00DCC863 /* RentProduct.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A77132902EECF00DCC863 /* RentProduct.xcdatamodeld */; };
 		0F1A77172902EED000DCC863 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F1A77162902EED000DCC863 /* Assets.xcassets */; };
@@ -29,6 +29,9 @@
 		0F7F128D2903BDCA00F3C79B /* ProductDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7F128C2903BDCA00F3C79B /* ProductDataRepository.swift */; };
 		0F7F12902903C26C00F3C79B /* CDProduct+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7F128E2903C26C00F3C79B /* CDProduct+CoreDataClass.swift */; };
 		0F7F12912903C26C00F3C79B /* CDProduct+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7F128F2903C26C00F3C79B /* CDProduct+CoreDataProperties.swift */; };
+		0F7F12942903E6AA00F3C79B /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7F12922903E6AA00F3C79B /* ProductTableViewCell.swift */; };
+		0F7F12952903E6AA00F3C79B /* ProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F7F12932903E6AA00F3C79B /* ProductTableViewCell.xib */; };
+		0F7F12972903ECE900F3C79B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7F12962903ECE900F3C79B /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +55,7 @@
 		0F1A77072902EECF00DCC863 /* RentProduct.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RentProduct.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F1A770A2902EECF00DCC863 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0F1A770C2902EECF00DCC863 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0F1A770E2902EECF00DCC863 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0F1A770E2902EECF00DCC863 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		0F1A77112902EECF00DCC863 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0F1A77142902EECF00DCC863 /* RentProduct.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RentProduct.xcdatamodel; sourceTree = "<group>"; };
 		0F1A77162902EED000DCC863 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -75,6 +78,9 @@
 		0F7F128C2903BDCA00F3C79B /* ProductDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDataRepository.swift; sourceTree = "<group>"; };
 		0F7F128E2903C26C00F3C79B /* CDProduct+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDProduct+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0F7F128F2903C26C00F3C79B /* CDProduct+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDProduct+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0F7F12922903E6AA00F3C79B /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
+		0F7F12932903E6AA00F3C79B /* ProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductTableViewCell.xib; sourceTree = "<group>"; };
+		0F7F12962903ECE900F3C79B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,7 +169,9 @@
 		0F1A773D2902F93800DCC863 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0F1A770E2902EECF00DCC863 /* ViewController.swift */,
+				0F1A770E2902EECF00DCC863 /* HomeViewController.swift */,
+				0F7F12922903E6AA00F3C79B /* ProductTableViewCell.swift */,
+				0F7F12932903E6AA00F3C79B /* ProductTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -179,6 +187,7 @@
 		0F1A773F2902F95100DCC863 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				0F7F12962903ECE900F3C79B /* HomeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -328,6 +337,7 @@
 			files = (
 				0F1A771A2902EED000DCC863 /* LaunchScreen.storyboard in Resources */,
 				0F1A77172902EED000DCC863 /* Assets.xcassets in Resources */,
+				0F7F12952903E6AA00F3C79B /* ProductTableViewCell.xib in Resources */,
 				0F1A774E2902FE7300DCC863 /* backend-frontend-data.json in Resources */,
 				0F1A77122902EECF00DCC863 /* Main.storyboard in Resources */,
 			);
@@ -354,7 +364,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F1A770F2902EECF00DCC863 /* ViewController.swift in Sources */,
+				0F7F12972903ECE900F3C79B /* HomeViewModel.swift in Sources */,
+				0F1A770F2902EECF00DCC863 /* HomeViewController.swift in Sources */,
 				0F1A77522902FFF000DCC863 /* Constants.swift in Sources */,
 				0F1A77472902FB9600DCC863 /* Log.swift in Sources */,
 				0F1A774B2902FC8D00DCC863 /* Product.swift in Sources */,
@@ -363,6 +374,7 @@
 				0F1A7754290300F000DCC863 /* InitDataManager.swift in Sources */,
 				0F1A77492902FBDE00DCC863 /* Bindable.swift in Sources */,
 				0F1A770B2902EECF00DCC863 /* AppDelegate.swift in Sources */,
+				0F7F12942903E6AA00F3C79B /* ProductTableViewCell.swift in Sources */,
 				0F1A77152902EECF00DCC863 /* RentProduct.xcdatamodeld in Sources */,
 				0F1A77432902F98500DCC863 /* PersistentStorage.swift in Sources */,
 				0F7F12912903C26C00F3C79B /* CDProduct+CoreDataProperties.swift in Sources */,
