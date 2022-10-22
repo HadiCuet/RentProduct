@@ -22,8 +22,9 @@ class PersistentStorage: NSObject {
         return container
     }()
 
+    lazy var context = persistentContainer.viewContext
+
     func saveContext () {
-        let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
                 try context.save()
@@ -32,5 +33,19 @@ class PersistentStorage: NSObject {
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+    }
+
+    func fetchManagedObject<T: NSManagedObject>(object: T.Type) -> [T]? {
+        do {
+            guard let result = try context.fetch(object.fetchRequest()) as? [T] else {
+                Log.error("Error on fetch object.")
+                return nil
+            }
+            return result
+        }
+        catch let error {
+            Log.error("Exception on fetch object - \(error.localizedDescription)")
+        }
+        return nil
     }
 }
