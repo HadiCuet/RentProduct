@@ -2,70 +2,128 @@
 //  BookProductView.swift
 //  RentProduct
 //
-//  Created by Abdullah Al Hadi on 22/10/22.
-//
 
 import UIKit
 
 class BookProductView: UIView {
 
-    let bgView = UIView()
-    let containerView = UIView()
-    var viewWidth : CGFloat = 0
+    @IBOutlet weak var bgView: UIView!
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var productTextField: UITextField!
+    @IBOutlet weak var datePicker: UIDatePicker!
+
+    var containerViewController : UIViewController?
+    var viewModel: HomeViewModel?
+    let pickerView = ToolbarPickerView()
+    var productForBook = [ProductElement]()
+    var selectedProduct : ProductElement?
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.setupBGView()
-        self.setupContainerView()
+
+        self.prepareDataSet()
+        self.commonInit()
     }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        self.viewWidth = frame.size.width
-        self.setupBGView()
-        self.setupContainerView()
+        self.prepareDataSet()
+        self.commonInit()
     }
 
-    private func setupContainerView() {
-        containerView.frame = CGRect(x: 0, y: 0, width: self.viewWidth - 80, height: 300)
-        containerView.center = bgView.center
-        containerView.backgroundColor = .white
-        containerView.isUserInteractionEnabled = false
-        bgView.addSubview(containerView)
-
-        self.addTextField()
+    private func prepareDataSet() {
+        viewModel = HomeViewModel()
+        viewModel?.getProductsForBook()
+        viewModel?.filteredProducts.bind({ products in
+            self.productForBook = products
+            self.selectedProduct = products.first
+        })
     }
 
-    private func addTextField() {
-        let containerWidth = self.containerView.frame.size.width
-        let textField = UITextField(frame: CGRect(x: 20, y: 20, width: containerWidth - 40, height: 80))
-        textField.text = "Dummy Text - Abdullah Al Hadi"
-        textField.textAlignment = .center
-        self.containerView.addSubview(textField)
+    private func commonInit() {
+        DispatchQueue.main.async {
+            self.containerView.layer.cornerRadius = 15
+            self.bgView.backgroundColor = .black.withAlphaComponent(0.3)
+            self.setUpPickerView()
+            self.setDatePickerMinDate()
+        }
     }
 
-    private func setupBGView() {
-        bgView.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
-        bgView.backgroundColor = .blue.withAlphaComponent(0.3)
-        self.addSubview(bgView)
+    private func setUpPickerView() {
+        self.productTextField.text = self.productForBook.first?.name
+        self.productTextField.layer.cornerRadius = 5
+        self.productTextField.layer.borderColor = UIColor.darkGray.cgColor
+        self.productTextField.layer.borderWidth = 0.5
 
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissView(_:)))
-        gesture.cancelsTouchesInView = false
-        gesture.delegate = self
-        bgView.addGestureRecognizer(gesture)
+        self.productTextField.inputView = self.pickerView
+        self.productTextField.inputAccessoryView = self.pickerView.toolbar
+
+        self.pickerView.dataSource = self
+        self.pickerView.delegate = self
+        self.pickerView.toolbarDelegate = self
+        self.pickerView.reloadAllComponents()
     }
 
-    @objc private func dismissView(_ sender: UITapGestureRecognizer?) {
+    private func setDatePickerMinDate() {
+        let minDate = Calendar.current.date(byAdding: .day, value: Int(self.selectedProduct?.minimumRentPeriod ?? 0), to: Date())
+        self.datePicker.minimumDate = minDate
+    }
+
+    @IBAction func cancelButtonPressed(_ sender: UIButton) {
         self.removeFromSuperview()
+    }
+
+    @IBAction func okButtonPressed(_ sender: UIButton) {
+        if let curVC = GlobalMethod.getFirstViewController(ofView: self) as? HomeViewController {
+            var price: Double = 0
+            if let product = self.selectedProduct {
+                price = viewModel?.getEstimatedPrice(forProduct: product, till: datePicker.date) ?? 0
+            }
+            let alert = UIAlertController(title: "Return a product", message: "Your estimated price is $\(price).\nDo you want to proceed", preferredStyle: .alert)
+
+            let noAction = UIAlertAction(title: "No", style: .default)
+            alert.addAction(noAction)
+
+            let yesAction = UIAlertAction(title: "Yes", style: .default) { _ in
+                self.viewModel?.bookProductForRent(self.selectedProduct)
+                curVC.viewModel.getAllProducts()
+                self.removeFromSuperview()
+            }
+            alert.addAction(yesAction)
+
+            curVC.present(alert, animated: true)
+        }
+    }
+
+    class func instanceFromNib() -> UIView? {
+        let nib = UINib(nibName: "BookProductView", bundle: nil)
+        return nib.instantiate(withOwner: nil, options: nil).first as? UIView
     }
 }
 
-extension BookProductView : UIGestureRecognizerDelegate {
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        if containerView.frame.contains(touch.location(in: bgView)) {
-            return false
-        }
-        return true
+extension BookProductView: UIPickerViewDataSource, UIPickerViewDelegate {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return self.productForBook.count
+    }
+
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return self.productForBook[row].name
+    }
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.productTextField.text = self.productForBook[row].name
+        self.selectedProduct = self.productForBook[row]
+        self.setDatePickerMinDate()
+    }
+}
+
+extension BookProductView: ToolbarPickerViewDelegate {
+    func didTapDone() {
+        self.productTextField.resignFirstResponder()
     }
 }

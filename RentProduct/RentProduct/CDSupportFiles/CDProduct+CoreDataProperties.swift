@@ -2,7 +2,7 @@
 //  CDProduct+CoreDataProperties.swift
 //  RentProduct
 //
-//  Created by Abdullah Al Hadi on 22/10/22.
+//  Created by Abdullah Al Hadi on 23/10/22.
 //
 //
 
@@ -26,6 +26,7 @@ extension CDProduct {
     @NSManaged public var needingRepair: Bool
     @NSManaged public var price: Double
     @NSManaged public var type: String
+    @NSManaged public var rentStartedDate: Date?
 
 }
 

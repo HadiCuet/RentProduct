@@ -10,6 +10,7 @@
         <attribute name="name" attributeType="String"/>
         <attribute name="needingRepair" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="price" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="rentStartedDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="type" attributeType="String"/>
         <uniquenessConstraints>
             <uniquenessConstraint>

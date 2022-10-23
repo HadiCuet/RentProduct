@@ -16,6 +16,7 @@ extension CDProduct {
                               maxDurability: self.maxDurability,
                               mileage: self.mileage,
                               price: self.price,
-                              minimumRentPeriod: self.minimumRentPeriod)
+                              minimumRentPeriod: self.minimumRentPeriod,
+                              rentStartedDate: self.rentStartedDate)
     }
 }

@@ -26,16 +26,6 @@ struct ProductDataRepository : ProductRepository {
 
     func createProduct(product: ProductElement) {
         var cdProduct = CDProduct(context: PersistentStorage.shared.context)
-//        cdProduct.code = product.code
-//        cdProduct.name = product.name
-//        cdProduct.type = product.type.rawValue
-//        cdProduct.availability = product.availability
-//        cdProduct.needingRepair = product.needingRepair
-//        cdProduct.durability = product.durability
-//        cdProduct.maxDurability = product.maxDurability
-//        cdProduct.mileage = product.mileage ?? 0
-//        cdProduct.price = product.price
-//        cdProduct.minimumRentPeriod = product.minimumRentPeriod
         product.convertToCDProduct(&cdProduct)
 
         PersistentStorage.shared.saveContext()
