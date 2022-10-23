@@ -25,7 +25,6 @@ class HomeViewController: UIViewController {
 
         self.setUpTableView()
         self.setUpSearchController()
-        self.setUpSubViews()
         self.bindViewModelData()
         self.viewModel.getAllProducts()
     }
@@ -55,26 +54,20 @@ class HomeViewController: UIViewController {
         self.searchController.searchBar.delegate = self
     }
 
-    func setUpSubViews() {
-        if let bookView = BookProductView.instanceFromNib() as? BookProductView {
-            let frameSize = self.view.frame.size
-            bookView.frame = CGRect(x: 0, y: 0, width: frameSize.width, height: frameSize.height)
-            bookView.containerViewController = self
-            bookView.viewModel = self.viewModel
-            self.bookProductView = bookView
-        }
-    }
-
     @IBAction func bookButtonPressed(_ sender: UIButton) {
         if let bookView = BookProductView.instanceFromNib() as? BookProductView {
             let frameSize = self.view.frame.size
             bookView.frame = CGRect(x: 0, y: 0, width: frameSize.width, height: frameSize.height)
-            bookView.containerViewController = self
             self.view.addSubview(bookView)
         }
     }
 
     @IBAction func returnButtonPressed(_ sender: UIButton) {
+        if let bookView = ReturnProductView.instanceFromNib() as? ReturnProductView {
+            let frameSize = self.view.frame.size
+            bookView.frame = CGRect(x: 0, y: 0, width: frameSize.width, height: frameSize.height)
+            self.view.addSubview(bookView)
+        }
     }
 }
 
