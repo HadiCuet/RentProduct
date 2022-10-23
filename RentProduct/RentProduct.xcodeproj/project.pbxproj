@@ -25,13 +25,18 @@
 		0F1A774E2902FE7300DCC863 /* backend-frontend-data.json in Resources */ = {isa = PBXBuildFile; fileRef = 0F1A774D2902FE7300DCC863 /* backend-frontend-data.json */; };
 		0F1A77522902FFF000DCC863 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A77512902FFF000DCC863 /* Constants.swift */; };
 		0F1A7754290300F000DCC863 /* InitDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A7753290300F000DCC863 /* InitDataManager.swift */; };
+		0F3F51B1290454220007F6E0 /* BookProductView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F3F51B0290454220007F6E0 /* BookProductView.xib */; };
+		0F3F51B32904544A0007F6E0 /* BookProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3F51B22904544A0007F6E0 /* BookProductView.swift */; };
 		0F7F128B2903BA8B00F3C79B /* Extension+CDProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7F128A2903BA8B00F3C79B /* Extension+CDProducts.swift */; };
 		0F7F128D2903BDCA00F3C79B /* ProductDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7F128C2903BDCA00F3C79B /* ProductDataRepository.swift */; };
-		0F7F12902903C26C00F3C79B /* CDProduct+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7F128E2903C26C00F3C79B /* CDProduct+CoreDataClass.swift */; };
-		0F7F12912903C26C00F3C79B /* CDProduct+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7F128F2903C26C00F3C79B /* CDProduct+CoreDataProperties.swift */; };
 		0F7F12942903E6AA00F3C79B /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7F12922903E6AA00F3C79B /* ProductTableViewCell.swift */; };
 		0F7F12952903E6AA00F3C79B /* ProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F7F12932903E6AA00F3C79B /* ProductTableViewCell.xib */; };
 		0F7F12972903ECE900F3C79B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7F12962903ECE900F3C79B /* HomeViewModel.swift */; };
+		0FE0FEAB2904C52300923343 /* ToolbarPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE0FEAA2904C52300923343 /* ToolbarPickerView.swift */; };
+		0FE0FEAD2904D8C000923343 /* Extension+Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE0FEAC2904D8C000923343 /* Extension+Calendar.swift */; };
+		0FE0FEB02904DDD500923343 /* CDProduct+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE0FEAE2904DDD500923343 /* CDProduct+CoreDataClass.swift */; };
+		0FE0FEB12904DDD500923343 /* CDProduct+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE0FEAF2904DDD500923343 /* CDProduct+CoreDataProperties.swift */; };
+		0FE0FEB32904E5D800923343 /* GlobalMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE0FEB22904E5D800923343 /* GlobalMethod.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,13 +79,18 @@
 		0F1A774D2902FE7300DCC863 /* backend-frontend-data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "backend-frontend-data.json"; sourceTree = "<group>"; };
 		0F1A77512902FFF000DCC863 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0F1A7753290300F000DCC863 /* InitDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitDataManager.swift; sourceTree = "<group>"; };
+		0F3F51B0290454220007F6E0 /* BookProductView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookProductView.xib; sourceTree = "<group>"; };
+		0F3F51B22904544A0007F6E0 /* BookProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookProductView.swift; sourceTree = "<group>"; };
 		0F7F128A2903BA8B00F3C79B /* Extension+CDProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CDProducts.swift"; sourceTree = "<group>"; };
 		0F7F128C2903BDCA00F3C79B /* ProductDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDataRepository.swift; sourceTree = "<group>"; };
-		0F7F128E2903C26C00F3C79B /* CDProduct+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDProduct+CoreDataClass.swift"; sourceTree = "<group>"; };
-		0F7F128F2903C26C00F3C79B /* CDProduct+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDProduct+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0F7F12922903E6AA00F3C79B /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
 		0F7F12932903E6AA00F3C79B /* ProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductTableViewCell.xib; sourceTree = "<group>"; };
 		0F7F12962903ECE900F3C79B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		0FE0FEAA2904C52300923343 /* ToolbarPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarPickerView.swift; sourceTree = "<group>"; };
+		0FE0FEAC2904D8C000923343 /* Extension+Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Calendar.swift"; sourceTree = "<group>"; };
+		0FE0FEAE2904DDD500923343 /* CDProduct+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDProduct+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0FE0FEAF2904DDD500923343 /* CDProduct+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDProduct+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0FE0FEB22904E5D800923343 /* GlobalMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalMethod.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +182,9 @@
 				0F1A770E2902EECF00DCC863 /* HomeViewController.swift */,
 				0F7F12922903E6AA00F3C79B /* ProductTableViewCell.swift */,
 				0F7F12932903E6AA00F3C79B /* ProductTableViewCell.xib */,
+				0F3F51B22904544A0007F6E0 /* BookProductView.swift */,
+				0F3F51B0290454220007F6E0 /* BookProductView.xib */,
+				0FE0FEAA2904C52300923343 /* ToolbarPickerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -198,6 +211,8 @@
 				0F1A77462902FB9600DCC863 /* Log.swift */,
 				0F1A77482902FBDE00DCC863 /* Bindable.swift */,
 				0F1A77512902FFF000DCC863 /* Constants.swift */,
+				0FE0FEAC2904D8C000923343 /* Extension+Calendar.swift */,
+				0FE0FEB22904E5D800923343 /* GlobalMethod.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -222,11 +237,11 @@
 		0F7F12892903BA6600F3C79B /* CDSupportFiles */ = {
 			isa = PBXGroup;
 			children = (
+				0FE0FEAE2904DDD500923343 /* CDProduct+CoreDataClass.swift */,
+				0FE0FEAF2904DDD500923343 /* CDProduct+CoreDataProperties.swift */,
 				0F7F128C2903BDCA00F3C79B /* ProductDataRepository.swift */,
 				0F1A77422902F98500DCC863 /* PersistentStorage.swift */,
 				0F7F128A2903BA8B00F3C79B /* Extension+CDProducts.swift */,
-				0F7F128E2903C26C00F3C79B /* CDProduct+CoreDataClass.swift */,
-				0F7F128F2903C26C00F3C79B /* CDProduct+CoreDataProperties.swift */,
 			);
 			path = CDSupportFiles;
 			sourceTree = "<group>";
@@ -336,6 +351,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F1A771A2902EED000DCC863 /* LaunchScreen.storyboard in Resources */,
+				0F3F51B1290454220007F6E0 /* BookProductView.xib in Resources */,
 				0F1A77172902EED000DCC863 /* Assets.xcassets in Resources */,
 				0F7F12952903E6AA00F3C79B /* ProductTableViewCell.xib in Resources */,
 				0F1A774E2902FE7300DCC863 /* backend-frontend-data.json in Resources */,
@@ -364,20 +380,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FE0FEB32904E5D800923343 /* GlobalMethod.swift in Sources */,
+				0FE0FEAB2904C52300923343 /* ToolbarPickerView.swift in Sources */,
 				0F7F12972903ECE900F3C79B /* HomeViewModel.swift in Sources */,
+				0F3F51B32904544A0007F6E0 /* BookProductView.swift in Sources */,
 				0F1A770F2902EECF00DCC863 /* HomeViewController.swift in Sources */,
 				0F1A77522902FFF000DCC863 /* Constants.swift in Sources */,
 				0F1A77472902FB9600DCC863 /* Log.swift in Sources */,
 				0F1A774B2902FC8D00DCC863 /* Product.swift in Sources */,
-				0F7F12902903C26C00F3C79B /* CDProduct+CoreDataClass.swift in Sources */,
 				0F7F128D2903BDCA00F3C79B /* ProductDataRepository.swift in Sources */,
 				0F1A7754290300F000DCC863 /* InitDataManager.swift in Sources */,
 				0F1A77492902FBDE00DCC863 /* Bindable.swift in Sources */,
 				0F1A770B2902EECF00DCC863 /* AppDelegate.swift in Sources */,
 				0F7F12942903E6AA00F3C79B /* ProductTableViewCell.swift in Sources */,
+				0FE0FEAD2904D8C000923343 /* Extension+Calendar.swift in Sources */,
 				0F1A77152902EECF00DCC863 /* RentProduct.xcdatamodeld in Sources */,
 				0F1A77432902F98500DCC863 /* PersistentStorage.swift in Sources */,
-				0F7F12912903C26C00F3C79B /* CDProduct+CoreDataProperties.swift in Sources */,
+				0FE0FEB02904DDD500923343 /* CDProduct+CoreDataClass.swift in Sources */,
+				0FE0FEB12904DDD500923343 /* CDProduct+CoreDataProperties.swift in Sources */,
 				0F1A77452902FA9800DCC863 /* RentDataManager.swift in Sources */,
 				0F1A770D2902EECF00DCC863 /* SceneDelegate.swift in Sources */,
 				0F7F128B2903BA8B00F3C79B /* Extension+CDProducts.swift in Sources */,
@@ -486,7 +506,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -540,7 +560,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -565,6 +585,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -593,6 +614,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

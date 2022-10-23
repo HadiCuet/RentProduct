@@ -46,7 +46,11 @@ struct InitDataManager {
     private func saveDataToStorage(_ products : [ProductElement]) {
         let productRepository = ProductDataRepository()
         products.forEach({ (product) in
-            productRepository.createOrUpdateProduct(product)
+            var newProduct = product
+            if !newProduct.availability {
+                newProduct.rentStartedDate = Date()
+            }
+            productRepository.createOrUpdateProduct(newProduct)
         })
         UserDefaults.standard.set(true, forKey: dataSaveDoneKey)
     }
