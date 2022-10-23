@@ -48,4 +48,23 @@ class HomeViewModel: NSObject, HomeViewModelProtocol {
             Log.info("Update product done - \(updated)")
         }
     }
+
+    func getProductsForReturn() {
+        filteredProducts.value = dataManager.filterProductsForReturn()
+    }
+
+    func getReturnPrice(forProduct product: ProductElement) -> Double {
+        if let startDate = product.rentStartedDate {
+            var totalDay = Calendar.current.numberOfDaysBetween(startDate, and: Date())
+            if totalDay < product.minimumRentPeriod {
+                totalDay = Int(product.minimumRentPeriod)
+            }
+            return product.price * Double(totalDay)
+        }
+        return product.price * Double(product.minimumRentPeriod)
+    }
+
+    func returnProduct(_ product: ProductElement?, mileage: Int64?, needToRepair: Bool) {
+        
+    }
 }

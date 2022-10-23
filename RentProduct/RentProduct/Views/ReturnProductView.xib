@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ReturnProductView" customModule="RentProduct" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EFa-pl-88V">
+                    <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BEr-Yv-xBz">
+                            <rect key="frame" x="30" y="267" width="330" height="310"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ffv-w6-8nK">
+                                    <rect key="frame" x="0.0" y="16.333333333333314" width="330" height="277.33333333333331"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Return a product" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ru-hC-gnc">
+                                            <rect key="frame" x="20" y="0.0" width="290" height="24"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Products" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dxA-YS-BwO">
+                                            <rect key="frame" x="20" y="54" width="290" height="34"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Used Mileage" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1fd-Ea-ZXQ">
+                                            <rect key="frame" x="20" y="118" width="290" height="34"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MyD-J3-3gC">
+                                            <rect key="frame" x="20" y="182" width="290" height="31"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Need to repair" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePe-kz-6ow">
+                                                    <rect key="frame" x="0.0" y="0.0" width="241" height="31"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aeX-Tc-rvp">
+                                                    <rect key="frame" x="241" y="0.0" width="51" height="31"/>
+                                                </switch>
+                                            </subviews>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="csl-5b-zBU">
+                                            <rect key="frame" x="30" y="243.00000000000009" width="270" height="34.333333333333343"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vAI-IT-R3E">
+                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="34.333333333333336"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="Cancel" cornerStyle="large">
+                                                        <backgroundConfiguration key="background">
+                                                            <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                        </backgroundConfiguration>
+                                                        <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="cancelButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="bDt-bv-Whd"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mXb-0s-owD">
+                                                    <rect key="frame" x="150" y="0.0" width="120" height="34.333333333333336"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="OK" cornerStyle="large">
+                                                        <backgroundConfiguration key="background">
+                                                            <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                        </backgroundConfiguration>
+                                                        <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="okButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="uEP-vh-yow"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="1fd-Ea-ZXQ" firstAttribute="leading" secondItem="ffv-w6-8nK" secondAttribute="leading" constant="20" id="RYV-sX-x6q"/>
+                                        <constraint firstAttribute="trailing" secondItem="8ru-hC-gnc" secondAttribute="trailing" constant="20" id="SaY-fr-NnP"/>
+                                        <constraint firstAttribute="trailing" secondItem="csl-5b-zBU" secondAttribute="trailing" constant="30" id="UnD-oF-AG4"/>
+                                        <constraint firstItem="dxA-YS-BwO" firstAttribute="leading" secondItem="ffv-w6-8nK" secondAttribute="leading" constant="20" id="YfE-7H-7pO"/>
+                                        <constraint firstItem="csl-5b-zBU" firstAttribute="leading" secondItem="ffv-w6-8nK" secondAttribute="leading" constant="30" id="bgz-NW-GbM"/>
+                                        <constraint firstAttribute="trailing" secondItem="dxA-YS-BwO" secondAttribute="trailing" constant="20" id="k39-NK-R69"/>
+                                        <constraint firstAttribute="trailing" secondItem="1fd-Ea-ZXQ" secondAttribute="trailing" constant="20" id="lYn-do-NPO"/>
+                                        <constraint firstItem="8ru-hC-gnc" firstAttribute="leading" secondItem="ffv-w6-8nK" secondAttribute="leading" constant="20" id="u3s-Vf-JAz"/>
+                                        <constraint firstItem="MyD-J3-3gC" firstAttribute="leading" secondItem="ffv-w6-8nK" secondAttribute="leading" constant="20" id="ynE-uv-bbX"/>
+                                        <constraint firstAttribute="trailing" secondItem="MyD-J3-3gC" secondAttribute="trailing" constant="20" id="yrI-nV-UYI"/>
+                                    </constraints>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="310" id="HQp-h3-lnd"/>
+                                <constraint firstItem="ffv-w6-8nK" firstAttribute="centerY" secondItem="BEr-Yv-xBz" secondAttribute="centerY" id="PUP-xS-rzr"/>
+                                <constraint firstItem="ffv-w6-8nK" firstAttribute="leading" secondItem="BEr-Yv-xBz" secondAttribute="leading" id="Uz8-2M-6T6"/>
+                                <constraint firstItem="ffv-w6-8nK" firstAttribute="centerX" secondItem="BEr-Yv-xBz" secondAttribute="centerX" id="Vg4-Ll-2qp"/>
+                                <constraint firstAttribute="trailing" secondItem="ffv-w6-8nK" secondAttribute="trailing" id="zBO-N8-Xix"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="BEr-Yv-xBz" secondAttribute="trailing" constant="30" id="J7g-J3-d1k"/>
+                        <constraint firstItem="BEr-Yv-xBz" firstAttribute="centerY" secondItem="EFa-pl-88V" secondAttribute="centerY" id="OPI-bD-0nc"/>
+                        <constraint firstItem="BEr-Yv-xBz" firstAttribute="leading" secondItem="EFa-pl-88V" secondAttribute="leading" constant="30" id="Xnq-Zd-FEw"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <constraints>
+                <constraint firstItem="EFa-pl-88V" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="2gy-RF-sTr"/>
+                <constraint firstAttribute="bottom" secondItem="EFa-pl-88V" secondAttribute="bottom" id="d2D-m1-EWs"/>
+                <constraint firstAttribute="trailing" secondItem="EFa-pl-88V" secondAttribute="trailing" id="eQS-er-h7C"/>
+                <constraint firstItem="EFa-pl-88V" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="y36-tQ-pCJ"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="bgView" destination="EFa-pl-88V" id="sOb-mM-vwt"/>
+                <outlet property="containerView" destination="BEr-Yv-xBz" id="daa-ju-h8l"/>
+                <outlet property="containerViewHeightConstraint" destination="HQp-h3-lnd" id="IxT-IS-VOu"/>
+                <outlet property="mileageTextField" destination="1fd-Ea-ZXQ" id="3FC-C9-0nv"/>
+                <outlet property="productTextField" destination="dxA-YS-BwO" id="Auk-JH-wT4"/>
+                <outlet property="repairSwitch" destination="aeX-Tc-rvp" id="gYg-Mn-NLe"/>
+            </connections>
+            <point key="canvasLocation" x="122" y="-11"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
