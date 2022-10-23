@@ -54,7 +54,17 @@ class HomeViewController: UIViewController {
         self.searchController.searchBar.delegate = self
     }
 
+    private func showAlert(withTitle title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+        self.present(alert, animated: true)
+    }
+
     @IBAction func bookButtonPressed(_ sender: UIButton) {
+        guard viewModel.getBookProductCount() > 0 else {
+            self.showAlert(withTitle: "Warning!!!", message: "No product available to book.")
+            return
+        }
         if let bookView = BookProductView.instanceFromNib() as? BookProductView {
             let frameSize = self.view.frame.size
             bookView.frame = CGRect(x: 0, y: 0, width: frameSize.width, height: frameSize.height)
@@ -63,6 +73,10 @@ class HomeViewController: UIViewController {
     }
 
     @IBAction func returnButtonPressed(_ sender: UIButton) {
+        guard viewModel.getReturnProductCount() > 0 else {
+            self.showAlert(withTitle: "Warning!!!", message: "No product available to return.")
+            return
+        }
         if let bookView = ReturnProductView.instanceFromNib() as? ReturnProductView {
             let frameSize = self.view.frame.size
             bookView.frame = CGRect(x: 0, y: 0, width: frameSize.width, height: frameSize.height)
