@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0F0FFC392905356E00A307CC /* ReturnProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0FFC382905356E00A307CC /* ReturnProductView.swift */; };
 		0F0FFC3B2905357C00A307CC /* ReturnProductView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F0FFC3A2905357C00A307CC /* ReturnProductView.xib */; };
+		0F0FFC402905906200A307CC /* HomeViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0FFC3F2905906200A307CC /* HomeViewModelTest.swift */; };
 		0F1A770B2902EECF00DCC863 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A770A2902EECF00DCC863 /* AppDelegate.swift */; };
 		0F1A770D2902EECF00DCC863 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A770C2902EECF00DCC863 /* SceneDelegate.swift */; };
 		0F1A770F2902EECF00DCC863 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A770E2902EECF00DCC863 /* HomeViewController.swift */; };
@@ -60,6 +61,7 @@
 /* Begin PBXFileReference section */
 		0F0FFC382905356E00A307CC /* ReturnProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnProductView.swift; sourceTree = "<group>"; };
 		0F0FFC3A2905357C00A307CC /* ReturnProductView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReturnProductView.xib; sourceTree = "<group>"; };
+		0F0FFC3F2905906200A307CC /* HomeViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTest.swift; sourceTree = "<group>"; };
 		0F1A77072902EECF00DCC863 /* RentProduct.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RentProduct.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F1A770A2902EECF00DCC863 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0F1A770C2902EECF00DCC863 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				0F1A77242902EED000DCC863 /* RentProductTests.swift */,
+				0F0FFC3F2905906200A307CC /* HomeViewModelTest.swift */,
 			);
 			path = RentProductTests;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F0FFC402905906200A307CC /* HomeViewModelTest.swift in Sources */,
 				0F1A77252902EED000DCC863 /* RentProductTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
