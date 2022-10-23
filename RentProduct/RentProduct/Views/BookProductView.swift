@@ -86,7 +86,7 @@ class BookProductView: UIView {
                 price = viewModel?.getEstimatedPrice(forProduct: product, till: datePicker.date) ?? 0
             }
             Log.info("Total estimated price - \(price)")
-            let alertTitle = "Return a product"
+            let alertTitle = "Book a product"
             let alertMessage = "Your estimated price is $\(price).\nDo you want to proceed"
             let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
 

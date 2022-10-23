@@ -116,13 +116,18 @@ class HomeViewModel: NSObject, HomeViewModelProtocol {
         else {
             //Durability decrease 2 points par day
             product.durability += (2 * rentPeriod)
-            if let mileage = mileage {
-                //Add used mileage.
-                product.mileage = (product.mileage ?? 0) + mileage
 
-                //Durability decrease 1 points par 5 mileage use.
-                product.durability += (mileage / 5)
+            //Default mileage used
+            var mileageUsed : Int64 = 10 * rentPeriod
+            if let mileage = mileage {
+                //User input mileage
+                mileageUsed = mileage
             }
+            //Add used mileage.
+            product.mileage = (product.mileage ?? 0) + mileageUsed
+
+            //Durability decrease 1 points par 5 mileage use.
+            product.durability += (mileageUsed / 5)
         }
         let updated = dataManager.updateProduct(product)
         Log.info("Update return product done - \(updated)")
