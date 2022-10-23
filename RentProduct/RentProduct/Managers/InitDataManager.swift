@@ -13,9 +13,10 @@ struct InitDataManager {
 
     func setInitData() {
         guard !isDataSaveDone() else {
-            Log.info("Init data already seved to storage.")
+            Log.info("Init data already saved to storage.")
             return
         }
+        Log.info("Init data not saved yet.")
         let initProducts = readDataFromJson()
         self.saveDataToStorage(initProducts)
     }
@@ -52,6 +53,7 @@ struct InitDataManager {
             }
             productRepository.createOrUpdateProduct(newProduct)
         })
+        Log.info("All init data saved to core data.")
         UserDefaults.standard.set(true, forKey: dataSaveDoneKey)
     }
 }

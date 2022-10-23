@@ -10,6 +10,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var productTableView: UITableView!
     @IBOutlet weak var bookButton: UIButton!
     @IBOutlet weak var returnButton: UIButton!
+    @IBOutlet weak var noItemView: UIView!
 
     private var searchText = ""
     private let tableViewCellName = "ProductTableViewCell"
@@ -34,6 +35,7 @@ class HomeViewController: UIViewController {
             guard let `self` = self else { return }
             Log.info("Product received to show - \(products.count)")
             self.products = products
+            self.noItemView.isHidden = (products.count > 0)
             self.productTableView.reloadData()
         }
     }
@@ -54,40 +56,54 @@ class HomeViewController: UIViewController {
         self.searchController.searchBar.delegate = self
     }
 
-    private func showAlert(withTitle title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    private func showWarningAlert(withMessage message: String) {
+        let alert = UIAlertController(title: "Warning!!!", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel))
         self.present(alert, animated: true)
     }
 
     @IBAction func bookButtonPressed(_ sender: UIButton) {
         guard viewModel.getBookProductCount() > 0 else {
-            self.showAlert(withTitle: "Warning!!!", message: "No product available to book.")
+            Log.error("No product available to book.")
+            self.showWarningAlert(withMessage: "No product available to book.")
             return
         }
         if let bookView = BookProductView.instanceFromNib() as? BookProductView {
+            Log.info("Show book sub view.")
             let frameSize = self.view.frame.size
             bookView.frame = CGRect(x: 0, y: 0, width: frameSize.width, height: frameSize.height)
             self.view.addSubview(bookView)
+        }
+        else {
+            Log.error("Can't instantiate book sub view.")
+            self.showWarningAlert(withMessage: "Can't instantiate book sub view.")
         }
     }
 
     @IBAction func returnButtonPressed(_ sender: UIButton) {
         guard viewModel.getReturnProductCount() > 0 else {
-            self.showAlert(withTitle: "Warning!!!", message: "No product available to return.")
+            Log.error("No product available to return.")
+            self.showWarningAlert(withMessage: "No product available to return.")
             return
         }
         if let bookView = ReturnProductView.instanceFromNib() as? ReturnProductView {
+            Log.info("Show return sub view.")
             let frameSize = self.view.frame.size
             bookView.frame = CGRect(x: 0, y: 0, width: frameSize.width, height: frameSize.height)
             self.view.addSubview(bookView)
+        }
+        else {
+            Log.error("Can't instantiate return sub view.")
+            self.showWarningAlert(withMessage: "Can't instantiate return sub view.")
         }
     }
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.products.count
+        let productCount = self.products.count
+        Log.info("Show \(productCount) products in table view.")
+        return productCount
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -97,6 +113,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellObject = tableView.dequeueReusableCell(withIdentifier: tableViewCellName, for: indexPath)
         guard let cell = cellObject as? ProductTableViewCell else {
+            Log.error("ProductTableViewCell instance create failed.")
             return UITableViewCell()
         }
         let product = self.products[indexPath.row]
@@ -108,6 +125,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension HomeViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        Log.info("Search product with key - \(self.searchText)")
         self.viewModel.searchProducts(withString: searchText)
     }
 
@@ -117,6 +135,12 @@ extension HomeViewController: UISearchBarDelegate {
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.searchText = searchText
+        Log.info("Search key changed - \(self.searchText)")
+        if self.searchText.isEmpty {
+            self.viewModel.getAllProducts()
+        } else {
+            self.viewModel.searchProducts(withString: searchText)
+        }
     }
 
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {

@@ -9,10 +9,12 @@ struct RentDataManager {
 
     private let productRepository = ProductDataRepository()
 
+    ///Fetch all products from core data.
     func fetchProducts() -> [ProductElement] {
         return self.productRepository.getAllProduct() ?? []
     }
 
+    ///Search and Return product with code.
     func getProduct(byCode code: String) -> ProductElement? {
         return self.productRepository.getProduct(byCode: code)
     }
