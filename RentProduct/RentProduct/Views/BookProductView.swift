@@ -26,6 +26,7 @@ class BookProductView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        Log.info("Init book product view.")
 
         self.prepareDataSet()
         self.commonInit()
@@ -35,6 +36,7 @@ class BookProductView: UIView {
         viewModel = HomeViewModel()
         viewModel?.getProductsForBook()
         viewModel?.filteredProducts.bind({ products in
+            Log.info("filter return product recieved count - \(products.count)")
             self.productForBook = products
             self.selectedProduct = products.first
         })
@@ -72,21 +74,26 @@ class BookProductView: UIView {
     }
 
     @IBAction func cancelButtonPressed(_ sender: UIButton) {
+        Log.info("Cancel - remove book view.")
         self.removeFromSuperview()
     }
 
     @IBAction func okButtonPressed(_ sender: UIButton) {
+        Log.info("OK - show book confirmation dialog")
         if let curVC = GlobalMethod.getFirstViewController(ofView: self) as? HomeViewController {
             var price: Double = 0
             if let product = self.selectedProduct {
                 price = viewModel?.getEstimatedPrice(forProduct: product, till: datePicker.date) ?? 0
             }
-            let alert = UIAlertController(title: "Return a product", message: "Your estimated price is $\(price).\nDo you want to proceed", preferredStyle: .alert)
+            Log.info("Total estimated price - \(price)")
+            let alertTitle = "Return a product"
+            let alertMessage = "Your estimated price is $\(price).\nDo you want to proceed"
+            let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
 
-            let noAction = UIAlertAction(title: "No", style: .default)
-            alert.addAction(noAction)
+            alert.addAction(UIAlertAction(title: "No", style: .default))
 
             let yesAction = UIAlertAction(title: "Yes", style: .default) { _ in
+                Log.info("Book product confirmed.")
                 self.viewModel?.bookProductForRent(self.selectedProduct)
                 curVC.viewModel.getAllProducts()
                 self.removeFromSuperview()
@@ -98,14 +105,18 @@ class BookProductView: UIView {
     }
 
     class func instanceFromNib() -> UIView? {
-        let nib = UINib(nibName: "BookProductView", bundle: nil)
+        Log.info("Book instance from nib")
+        let nibName = "BookProductView"
+        let nib = UINib(nibName: nibName, bundle: nil)
         return nib.instantiate(withOwner: nil, options: nil).first as? UIView
     }
 }
 
 extension BookProductView: UIPickerViewDataSource, UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return self.productForBook.count
+        let productCount = self.productForBook.count
+        Log.info("Showing \(productCount) book elements in picker view.")
+        return productCount
     }
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -113,11 +124,13 @@ extension BookProductView: UIPickerViewDataSource, UIPickerViewDelegate {
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return self.productForBook[row].name
+        let product = self.productForBook[row]
+        return "\(product.code) - \(product.name)"
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let product = self.productForBook[row]
+        Log.info("Selected book product code - \(product.code)")
         self.productTextField.text = "\(product.code) - \(product.name)"
         self.selectedProduct = product
         self.setDatePickerMinDate()
@@ -126,6 +139,7 @@ extension BookProductView: UIPickerViewDataSource, UIPickerViewDelegate {
 
 extension BookProductView: ToolbarPickerViewDelegate {
     func didTapDone() {
+        Log.info("Remove picker view.")
         self.productTextField.resignFirstResponder()
     }
 }

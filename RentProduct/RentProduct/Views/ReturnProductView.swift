@@ -28,6 +28,7 @@ class ReturnProductView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        Log.info("Init return product view.")
 
         self.prepareDataSet()
         self.commonInit()
@@ -37,6 +38,7 @@ class ReturnProductView: UIView {
         viewModel = HomeViewModel()
         viewModel?.getProductsForReturn()
         viewModel?.filteredProducts.bind({ products in
+            Log.info("filter product recieved count - \(products.count)")
             self.productsForReturn = products
             self.selectedProduct = products.first
             self.hideShowMileageView()
@@ -47,8 +49,18 @@ class ReturnProductView: UIView {
         DispatchQueue.main.async {
             self.containerView.layer.cornerRadius = 15
             self.bgView.backgroundColor = .black.withAlphaComponent(0.3)
+            let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleBGTap(_:)))
+            self.bgView.addGestureRecognizer(tap)
+
             self.setUpPickerView()
             self.setUpMileageView()
+        }
+    }
+
+    @objc func handleBGTap(_ sender: UITapGestureRecognizer) {
+        if self.mileageTextField.isFirstResponder {
+            Log.info("BGTap - hide keyboard")
+            self.mileageTextField.resignFirstResponder()
         }
     }
 
@@ -76,11 +88,14 @@ class ReturnProductView: UIView {
 
     private func hideShowMileageView() {
         DispatchQueue.main.async {
+            self.mileageTextField.text = ""
             if self.selectedProduct?.type == .meter {
+                Log.info("Meter type - show mileage input field")
                 self.mileageTextField.isHidden = false
                 self.containerViewHeightConstraint.constant = 320
             }
             else {
+                Log.info("plain type - hide mileage input field")
                 self.mileageTextField.isHidden = true
                 self.containerViewHeightConstraint.constant = 270
             }
@@ -88,21 +103,26 @@ class ReturnProductView: UIView {
     }
 
     @IBAction func cancelButtonPressed(_ sender: UIButton) {
+        Log.info("Cancel - remove return view.")
         self.removeFromSuperview()
     }
     
     @IBAction func okButtonPressed(_ sender: UIButton) {
+        Log.info("OK - show confirmation dialog")
         if let curVC = GlobalMethod.getFirstViewController(ofView: self) as? HomeViewController {
             var price: Double = 0
             if let product = self.selectedProduct {
                 price = viewModel?.getReturnPrice(forProduct: product) ?? product.price
             }
-            let alert = UIAlertController(title: "Return a product", message: "Your total price is $\(price).\nDo you want to proceed", preferredStyle: .alert)
+            Log.info("Total price - \(price)")
+            let alertTitle = "Return a product"
+            let alertMessage = "Your total price is $\(price).\nDo you want to proceed"
+            let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
 
-            let noAction = UIAlertAction(title: "No", style: .default)
-            alert.addAction(noAction)
+            alert.addAction(UIAlertAction(title: "No", style: .default))
 
             let yesAction = UIAlertAction(title: "Yes", style: .default) { _ in
+                Log.info("Return product confirmed.")
                 let mileageNumber = Int64(self.mileageTextField.text ?? "") ?? nil
                 self.viewModel?.returnProduct(self.selectedProduct, mileage: mileageNumber, needToRepair: self.repairSwitch.isOn)
                 curVC.viewModel.getAllProducts()
@@ -115,14 +135,18 @@ class ReturnProductView: UIView {
     }
 
     class func instanceFromNib() -> UIView? {
-        let nib = UINib(nibName: "ReturnProductView", bundle: nil)
+        Log.info("Instance from nib")
+        let returnNIBName = "ReturnProductView"
+        let nib = UINib(nibName: returnNIBName, bundle: nil)
         return nib.instantiate(withOwner: nil, options: nil).first as? UIView
     }
 }
 
 extension ReturnProductView: UIPickerViewDataSource, UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return self.productsForReturn.count
+        let productCount = self.productsForReturn.count
+        Log.info("Showing \(productCount) elements in picker view.")
+        return productCount
     }
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -136,6 +160,7 @@ extension ReturnProductView: UIPickerViewDataSource, UIPickerViewDelegate {
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let product = self.productsForReturn[row]
+        Log.info("Selected return product code - \(product.code)")
         self.productTextField.text = "\(product.code) - \(product.name)"
         self.selectedProduct = product
     }
@@ -143,6 +168,7 @@ extension ReturnProductView: UIPickerViewDataSource, UIPickerViewDelegate {
 
 extension ReturnProductView: ToolbarPickerViewDelegate {
     func didTapDone() {
+        Log.info("Pickview removed.")
         self.productTextField.resignFirstResponder()
         self.hideShowMileageView()
     }
