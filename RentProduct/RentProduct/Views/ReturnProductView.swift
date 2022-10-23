@@ -71,6 +71,7 @@ class ReturnProductView: UIView {
 
     private func setUpMileageView() {
         self.mileageTextField.keyboardType = .numberPad
+        self.mileageTextField.delegate = self
     }
 
     private func hideShowMileageView() {
@@ -144,5 +145,13 @@ extension ReturnProductView: ToolbarPickerViewDelegate {
     func didTapDone() {
         self.productTextField.resignFirstResponder()
         self.hideShowMileageView()
+    }
+}
+
+extension ReturnProductView: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let allowedCharacters = CharacterSet.decimalDigits
+        let characterSet = CharacterSet(charactersIn: string)
+        return allowedCharacters.isSuperset(of: characterSet)
     }
 }
